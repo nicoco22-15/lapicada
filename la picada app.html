@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ventas y Ganancias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo de tu negocio"> </div>
+        <h1>Registro Diario de Ventas</h1>
+
+        <div class="input-section">
+            <div>
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" value="">
+            </div>
+
+            <div>
+                <label for="descripcion">Descripción (opcional):</label>
+                <input type="text" id="descripcion" placeholder="Ej: Camisa, Servicio de consultoría">
+            </div>
+
+            <div>
+                <label for="montoVenta">Monto Total Vendido ($):</label>
+                <input type="number" id="montoVenta" placeholder="Ej: 150.000" min="0">
+            </div>
+
+            <button id="agregarVenta">Agregar Venta</button>
+        </div>
+
+        <hr>
+
+        <h2>Resumen de Ventas</h2>
+        <div class="summary-section">
+            <p>Ganancia Total Acumulada: <span id="gananciaTotal">$0,00</span></p>
+            <p>Capital Actual: <span id="capitalActual">$0,00</span></p>
+            <button id="configurarCapitalBtn">Configurar Capital Inicial</button>
+        </div>
+
+        <hr>
+
+        <h2>Detalle de Ventas</h2>
+        <table id="tablaVentas">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Monto Vendido ($)</th>
+                    <th>Ganancia (20%) ($)</th>
+                    <th>Capital Retenido (80%) ($)</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Establecer la fecha actual por defecto al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Meses son 0-11
+            const day = String(today.getDate()).padStart(2, '0');
+            document.getElementById('fecha').value = `${year}-${month}-${day}`;
+        });
+    </script>
+</body>
+</html>
